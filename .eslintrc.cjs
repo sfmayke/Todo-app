@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 module.exports = {
   extends: [
     // By extending from a plugin config, we can get recommended rules without having to add them manually.
@@ -29,6 +28,23 @@ module.exports = {
     },
   },
   rules: {
-    'import/no-extraneous-dependencies': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/require-default-props': 0,
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
   },
 };
