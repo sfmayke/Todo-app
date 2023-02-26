@@ -5,5 +5,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#fafafa] dark:bg-[#171823];
+  @apply bg-[#fafafa] transition-all duration-500 dark:bg-[#171823] sm:flex sm:justify-center;
 }

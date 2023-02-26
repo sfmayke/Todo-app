@@ -1,26 +1,35 @@
-import { IconCheck, IconCross } from './Icons';
+import { Todo } from '../ts/interfaces/Todo.interfaces';
+import { IconCross } from './Icons';
 
-export default function TodoItem() {
+interface Props {
+  todo: Todo;
+  toggleTodo: (todo: Todo) => void;
+  removeTodo: (id: string) => void;
+}
+
+export default function TodoItem({ todo, toggleTodo, removeTodo }: Props) {
   return (
-    <div className="relative flex w-full items-center justify-start gap-3 bg-white py-4 px-5 dark:bg-[#25273D]">
-      {/* <span className="top-0 left-0 h-5 w-5 rounded-full border-2 border-[#E3E4F1]" /> */}
-      <span className="top-0 left-0 flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-[#55FFF4] to-[#C058F3]">
-        <IconCheck />
-      </span>
-      <input
-        className="absolute h-5 w-5 cursor-pointer opacity-0"
-        type="checkbox"
-        id="todo-check"
-        onChange={() => alert()}
-      />
+    <div className="relative flex w-full items-center justify-start gap-3 bg-white py-4 px-5 transition-all duration-500 dark:bg-[#25273D] sm:py-5 sm:px-6">
+      <div className="relative">
+        <input
+          type="checkbox"
+          checked={todo.completed}
+          onChange={() => toggleTodo(todo)}
+          className="h-5 w-5 rounded-full border-[#E3E4F1] bg-transparent ring-0 before:pointer-events-none before:absolute before:top-[62%] before:left-[50%] before:hidden before:h-[55%] before:w-[55%] before:translate-y-[-50%] before:translate-x-[-50%] before:bg-check-icon before:bg-contain before:bg-no-repeat before:content-[''] checked:bg-gradient-to-br checked:from-[#57ddff] checked:to-[#c058f3] checked:before:block focus:border-none focus:ring-transparent checked:focus:border-none"
+        />
+      </div>
       <label
         htmlFor="todo-check"
-        // className="relative block cursor-pointer select-none text-[12px] text-[#494C6B] dark:text-[#C8CBE7]"
-        className="relative block cursor-pointer select-none text-[12px] text-[#494C6B] line-through"
+        className={`relative block cursor-pointer select-none text-[12px]  dark:text-[#C8CBE7] sm:text-[18px] ${
+          todo.completed ? 'text-[#494C6B]/50 line-through' : 'text-[#494C6B]'
+        }`}
       >
-        Jog around the park 3x
+        {todo.desc}
       </label>
-      <IconCross className="ml-auto w-3" />
+      <IconCross
+        onClick={() => removeTodo(todo.id)}
+        className="ml-auto w-3 sm:w-[18px]"
+      />
     </div>
   );
 }
