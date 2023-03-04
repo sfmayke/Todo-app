@@ -17,9 +17,6 @@ module.exports = {
       boxShadow: {
         custom: '0px 35px 50px -15px rgba(194, 195, 214, 0.5)',
       },
-      backgroundImage: {
-        'check-icon': "url('src/assets/icon-check.svg')",
-      },
     },
   },
   plugins: [require('@tailwindcss/forms')],

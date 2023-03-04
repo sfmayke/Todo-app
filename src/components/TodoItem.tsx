@@ -1,5 +1,5 @@
 import { Todo } from '../ts/interfaces/Todo.interfaces';
-import { IconCross } from './Icons';
+import { IconCross, IconCheck } from './Icons';
 
 interface Props {
   todo: Todo;
@@ -15,8 +15,15 @@ export default function TodoItem({ todo, toggleTodo, removeTodo }: Props) {
           type="checkbox"
           checked={todo.completed}
           onChange={() => toggleTodo(todo)}
-          className="h-5 w-5 rounded-full border-[#E3E4F1] bg-transparent ring-0 before:pointer-events-none before:absolute before:top-[62%] before:left-[50%] before:hidden before:h-[55%] before:w-[55%] before:translate-y-[-50%] before:translate-x-[-50%] before:bg-check-icon before:bg-contain before:bg-no-repeat before:content-[''] checked:bg-gradient-to-br checked:from-[#57ddff] checked:to-[#c058f3] checked:before:block focus:border-none focus:ring-transparent checked:focus:border-none"
+          className={`h-5 w-5 rounded-full border-[#E3E4F1] bg-transparent ring-0 before:pointer-events-none before:absolute 
+            before:top-[62%] before:left-[50%] before:hidden before:h-[55%] before:w-[55%] before:translate-y-[-50%] before:translate-x-[-50%] 
+            before:bg-contain before:bg-no-repeat before:content-[''] checked:bg-gradient-to-br 
+            checked:from-[#57ddff] checked:to-[#c058f3] checked:before:block focus:border-none focus:ring-transparent 
+            checked:focus:border-none`}
         />
+        {todo.completed && (
+          <IconCheck className="pointer-events-none absolute left-1/4 top-[35%]" />
+        )}
       </div>
       <label
         htmlFor="todo-check"
