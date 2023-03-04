@@ -9,6 +9,7 @@ import TodoItem from './components/TodoItem';
 import TodoStats from './components/TodoStats';
 import TodoStatsFilters from './components/TodoStatsFilters';
 import { Todo } from './ts/interfaces/Todo.interfaces';
+import TodoInitialState from './TodoMock';
 import {
   Add,
   Toggle,
@@ -59,7 +60,7 @@ function filterTodo(todos: Todo[], filter: Filters) {
 
 function App() {
   const [filter, setFilter] = useState<Filters>('All');
-  const [todos, dispatch] = useReducer(reducer, []);
+  const [todos, dispatch] = useReducer(reducer, TodoInitialState);
 
   const visibleTodos = useMemo(
     () => filterTodo(todos, filter),
