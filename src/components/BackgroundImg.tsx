@@ -1,10 +1,13 @@
+import bgDesktopDark from '../assets/images/bg-desktop-dark.jpg';
+import bgDesktopLight from '../assets/images/bg-desktop-light.jpg';
+
 export default function BackgroundImg() {
   return (
     <>
       <picture className="absolute top-0 left-0 -z-10">
         <source
           className="hidden dark:block"
-          srcSet="/src/assets/images/bg-desktop-dark.jpg"
+          srcSet={bgDesktopDark}
           media="(min-width: 376px)"
         />
         <img
@@ -16,7 +19,7 @@ export default function BackgroundImg() {
       <picture className="absolute top-0 left-0 -z-10">
         <source
           className="block dark:hidden"
-          srcSet="/src/assets/images/bg-desktop-light.jpg"
+          srcSet={bgDesktopLight}
           media="(min-width: 376px)"
         />
         <img
