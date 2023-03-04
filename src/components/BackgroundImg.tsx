@@ -1,5 +1,7 @@
 import bgDesktopDark from '../assets/images/bg-desktop-dark.jpg';
 import bgDesktopLight from '../assets/images/bg-desktop-light.jpg';
+import bgMobileDark from '../assets/images/bg-mobile-dark.jpg';
+import bgMobileLight from '../assets/images/bg-mobile-light.jpg';
 
 export default function BackgroundImg() {
   return (
@@ -12,7 +14,7 @@ export default function BackgroundImg() {
         />
         <img
           className="hidden dark:block"
-          srcSet="/src/assets/images/bg-mobile-dark.jpg"
+          srcSet={bgMobileDark}
           alt="background-mobile-dark"
         />
       </picture>
@@ -24,7 +26,7 @@ export default function BackgroundImg() {
         />
         <img
           className="block dark:hidden"
-          src="/src/assets/images/bg-mobile-light.jpg"
+          src={bgMobileLight}
           alt="background-mountains"
         />
       </picture>
